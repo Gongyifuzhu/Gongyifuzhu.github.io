@@ -1,0 +1,233 @@
+
+<!--
+//                            _ooOoo_  
+//                           o8888888o  
+//                           88" . "88  
+//                           (| -_- |)  
+//                            O\ = /O  
+//                        ____/`---'\____  
+//                         .' \\| |// `.  
+//                       / \\||| : |||// \  
+//                     / _||||| -:- |||||- \  
+//                       | | \\\ - /// | |  
+//                     | \_| ''\---/'' | |  |
+//                      \ .-\__ `-` ___/-. /  
+//                   ___ . .' /--.--\ `. . __  
+//                ."" '< `.___\_<|>_/___.' >'"".  
+//              | | : `- \`.;`\ _ /`;.`/ - ` : | |  
+//                 \ \ `-. \_ __\ /__ _/ .-` / /  
+//         ======`-.____`-.___\_____/___.-`____.-'======  
+//                            `=---='  
+//         .............................................  
+//         _____________________________________________
+-->
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<link rel="shortcut icon" href="favicon.ico">
+<meta charset="GBK">
+<meta name="keywords" content="公益官网进入界面">
+<meta name="description" content="公益检测浏览器界面">
+<title>公益官网</title>
+<style type="text/css">
+	body {
+		background-color: #000000;				/*背景颜色*/
+	}
+	#china{										/*国旗_爱我中华，强我中华，耀我中华，让世界聆听中国的声音。*/
+  		position:absolute;
+  	}
+	.STYLE_GGOOVV {								/*滑动字体颜色*/
+		color: #CACAB7;
+	}
+	td{											/*控制字体*/
+		background-color:#;
+		font-family:Courier New;
+		font-size:9pt;
+		color:#ffffff;
+		border-color:#000080;
+		border-width:0pt;
+		border-style:solid;
+		border-collapse:collapse;
+		padding:0pt 3pt;
+		vertical-align:top;
+	}
+	.footer_GGOOVV{								/*页尾*/
+	height:100px;
+    width:100%;
+    position:absolute;
+    bottom:0;
+    left:0;
+	text-align:center;
+	line-height:30px;
+	}
+	.footer_GGOOVV a{color:#BABABA; text-decoration:none;}
+	.footer_GGOOVV a:hover{color:#ee1919;}
+	.footer_GGOOVV em{ color:#606060; padding:0px 5px;}
+	.footer_GGOOVV p{color:#123456; font-size:20px;}
+</style>
+<!--控制台字体开始javascript-->
+<script type="text/javascript"> 
+    var charIndex = -1;
+    var stringLength = 0;
+    var inputText;
+    function writeContent(init){
+        if(init){
+            inputText = document.getElementById('contentToWrite').innerHTML;
+        }
+        if(charIndex==-1){
+            charIndex = 0;
+            stringLength = inputText.length;
+        }
+        var initString = document.getElementById('myContent_GGOOVV').innerHTML;
+        initString = initString.replace(/<SPAN.*$/gi,"");
+ 
+        var theChar = inputText.charAt(charIndex);
+           var nextFourChars = inputText.substr(charIndex,4);
+           if(nextFourChars=='<BR>' || nextFourChars=='<br>'){
+               theChar  = '<BR>';
+               charIndex+=3;
+           }
+        initString = initString + theChar + "<SPAN id='blink'>_</SPAN>";
+        document.getElementById('myContent_GGOOVV').innerHTML = initString;
+ 
+        charIndex = charIndex/1 +1;
+        if(charIndex%2==1){
+             document.getElementById('blink').style.display='none';
+        }else{
+             document.getElementById('blink').style.display='inline';
+        }
+ 
+        if(charIndex<=stringLength){
+            setTimeout('writeContent(false)',90);
+        }else{
+            blinkSpan();
+        }
+    }
+</script> 
+<!--控制台字体结束javascript-->
+</head>
+<bady>
+<!--国旗开始-->
+<div id="china">
+  	<canvas id="canvas-flag" width="99.99"></canvas>
+  	<script>
+	    (function() {
+	      // Flag of the people's republic of china, made by KilArmd
+		  var COLOR_RED    = "#800000";
+	      var COLOR_YELLOW = "#de2910";
+	      var canvas = document.getElementById("canvas-flag");
+	      var context = canvas.getContext("2d");
+	      var WIDTH  = canvas.width;
+	      var UNIT   = WIDTH / 30;
+	      var HEIGHT = canvas.height = UNIT * 20;
+	      context.fillStyle = COLOR_RED;
+	      context.fillRect(0, 0, WIDTH, HEIGHT);
+	      drawStar(context, 5 * UNIT, 5 * UNIT, 3 * UNIT, 5, COLOR_YELLOW);
+	      [ [10, 2], [12, 4], [12, 7], [10, 9] ].forEach(function(coors) {
+	        drawStar(context, coors[0] * UNIT, coors[1] * UNIT, UNIT, 5, COLOR_YELLOW,
+	             Math.atan((coors[1] - 5) / (coors[0] - 5)) + Math.PI);
+	      });
+	      function drawStar(context, cx, cy, radius, countSides, fillColor, startAngle) {
+	        var pointer = startAngle == null ? - Math.PI / 2 : startAngle;
+	        var angle = 2 * Math.PI / countSides;
+	        context.beginPath();
+	        for (var i = 0; i < countSides; i++) {
+	          context.lineTo(cx + radius * Math.cos(pointer), cy + radius * Math.sin(pointer));
+	          pointer += 2 * angle;
+	        }
+	        context.fillStyle = fillColor;
+	        context.fill();
+	        context.closePath();
+	      }
+	    }());
+  	</script>
+</div>
+ <!--国旗结束-->
+<!--滑动字体开始-->
+<div align="center">
+	<span class="STYLE_GGOOVV">
+		<marquee width="1000" scrolldelay="135" height="50">
+			<strong>
+				 维护网络安全，发扬黑客精神，爱我中华，强我中华，耀我中华，让世界聆听中国的声音。 _By白帝QQ2790746886
+			</strong>
+		</marquee>
+	</span>
+</div>
+<!--滑动字体结束-->
+<!--代码字体开始-->
+<div align="center" class="CodeFont_GGOOVV">
+		<pre><font color="#FF0000"><font size="1">HHHHHHHHH     HHHHHHHHH                                        <span class="style6">KKKKKKKK</span>                                        <span class="style6">          </span>
+H:::中::H     H::W::::H                                       <span class="style6"> K::::::K  </span>                                        <span class="style6">        </span>
+H:::国::H     H::W::::H                                       <span class="style6"> K::::::K   </span>                                     <span class="style6">          </span>
+ HH::匿::H     H::W:::HH                                        <span class="style6">K::::::K </span>                                         <span class="style6">         </span>
+  H:名::H     H::.::H     <span class="style6">aaaaaaaaaaaaa</span>       cccccccccccccccc  <span class="style6">K:::::K    KKKKKKK</span>  eeeeeeeeeeee      <span class="style6">rrrrr              </span>
+  H:者::H     H::G::H     <span class="style6">a::::::::::::a</span>    cc:::::::::::::::c <span class="style6"> K:::::K   K:::::K</span> ee::::::::::::ee   <span class="style6"> r:G:r              </span></font></font><font size="1"><font color="#FFFFFF">
+  H:黑:::HHHHH:::G::H     <span class="style6">aaaaaaaaa:::::a</span>  c:</font><font color="#FFFF00">::::::::::::::::c </font><span class="style6"><font color="#FFFF00"> K:::::K  K::</font><font color="#FFFFFF">:::K </font></span><font color="#FFFFFF">e::::::eeeee:::::ee  <span class="style6">r:G:rrrrrrrrrr     </span>
+  H:客:::::::::::O::H              <span class="style6">a::::a</span> c::</font><font color="#FFFF00">:::::cccccc:::::c  </font><span class="style6"><font color="#FFFF00">K:::::K K:::</font><font color="#FFFFFF">::K</font></span><font color="#FFFFFF"> e::::::e     e:::::e <span class="style6"> r:O:::::::::::r    </span>
+  H:组:::::::::::O::H       <span class="style6">aaaaaaa:::::a</span> c::</font><font color="#FFFF00">::::c     ccccccc  </font><span class="style6"><font color="#FFFF00">K::::::K::::</font><font color="#FFFFFF">:K </font></span><font color="#FFFFFF"> e:::::::eeeee::::::e <span class="style6"> r:O::rrrrrrrr::r   </span>
+  H:织:::HHHHH:::V::H     <span class="style6">aa::::::::::::a</span> c::</font><font color="#FFFF00">:::c              </font><span class="style6"><font color="#FFFF00"> K:::::::::::</font><font color="#FFFFFF">K </font></span><font color="#FFFFFF">  e:::::::::::::::::e  <span class="style6"> r:V::r       rrr   </span>
+  H:::::H     H::V::H    <span class="style6">a::::aaaa::::::a</span> c::</font><font color="#FFFF00">:::c              </font><span class="style6"><font color="#FFFF00"> K:::::::::::</font><font color="#FFFFFF">K </font></span><font color="#FFFFFF">  e::::::eeeeeeeeeee   <span class="style6"> r:V:r             </span> </font></font><font size="1"><font color="#008000">
+  H:::::H     H::.::H   <span class="style6">a::::a    a:::::a</span> c::::::c     c</font><font color="#FFFF00"><span class="style6">cccccc  K::::::K:::</span></font></font><font size="1"><font color="#008000"><span class="style6">::K </span> e:::::::e            <span class="style6"> r:.:r              </span>
+HH::::::H     H::C:::HH <span class="style6">a::::a    a:::::a </span>c:::::::cc</font><font color="#FFFF00"><span class="style6">cccc:::::c K::::::K K:</span></font></font><font size="1"><font color="#008000"><span class="style6">::::K</span> e::::::::e           <span class="style6"> r:C:r              </span>
+H:::::::H     H::O::::H <span class="style6">a:::::aaaa::::::a </span> c:::::::::::</font><font color="#FFFF00">::::::c K::::::K </font></font><font size="1"><font color="#008000"><span class="style6"> K:::::K</span> e::::::::eeeeeeee   <span class="style6">rr:O:rr             </span>
+H:::::::H     H::M::::H <span class="style6"> a:::::::::::::::a</span>  cc:::::::::::::</font><font color="#FFFF00"><span class="style6">::c K:::::</span></font></font><font size="1"><font color="#008000"><span class="style6">:K   K:::::K </span>ee:::::::::::::e   <span class="style6">r::M::r             </span>
+HHHHHHHHH     HHHHHHHHH   <span class="style6">aaaaaaaaaaaaaaaa</span>    ccccccccc</font><font color="#FFFF00"><span class="style6">ccccccc KKKKK</span></font></font><font color="#008000"><font size="1"><span class="style6">KKK    KKKKKKK </span> eeeeeeeeeeeeee   </font><span class="style6"><font size="1">rrrrrrr             </font></span></font></pre>
+</div>
+<!--代码字体结束-->
+<!--控制台开始-->
+<div align="center">
+<table height="0" width="880">
+<tbody>
+<tr> 
+<td> 
+<div id="myContent_GGOOVV">
+*** Console ***
+<br /> 
+============================================================================================================================
+<br />
+<br /> 
+[+] By: China Hacker Sha" <br> 
+[-] <font color=#ff0000>China Anonymous hacker organization :</font>
+<center> 
+<div width="600" id="contentToWrite" style="display: none;" text-decoration:="" overline="" class="tip"> 
+<br>  
+[+] uid=0(root) gid=0(root) groups=0(root)  </blink> <br> 
+[-] Message :  <br> 
+printf("we are anonymous, we are a legion, we do not forgive, we do not dorget, expect us.\n");
+<br /> 
+<br />
+============================================================================================================================
+<br /> 
+</div> 														
+</center>
+</td> 
+</tr> 
+</tbody> 
+</table>
+</div>
+</div>
+<!--下面这个函数不能删除 by：sha-->
+<script type="text/javascript">
+writeContent(true);
+</script>
+<!--上面这个函数不能删除 by：sha-->
+<!--控制台结束-->
+<!--进入网站开始-->
+<p align="center">
+<a style="text-decoration: none" href="daohang/hao.html">
+<font face="Arial Unicode MS" size="6" color="#00FF00">新版本下载地址>></font>
+</a>
+</p>
+<!--进入网站结束-->
+
+<!--页尾开始-->
+<div class="footer_GGOOVV">
+	<div class="footerlink">
+    <a target="_blank" href="http://www.jiuruaifx.cn/">个人引导官网</a> <em>|</em>
+	<a target="_blank" href="http://www.jiuruaifx.cn/">Github</a>
+ 	</div>
+	<p>2013-2019 China Anonymous hacker organization(白帝). All rights reserved.</p>
+</div>
+<!--页尾结束-->
+</bady>
+</html>
